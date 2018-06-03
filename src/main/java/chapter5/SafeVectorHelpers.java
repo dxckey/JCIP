@@ -3,7 +3,7 @@ package chapter5;
 import java.util.Vector;
 
 /**
- * 在使用客户端枷锁的Vector上的复合操作
+ * 在使用客户端锁的Vector上的复合操作
  */
 public class SafeVectorHelpers {
     public static Object getLast(Vector vector) {
