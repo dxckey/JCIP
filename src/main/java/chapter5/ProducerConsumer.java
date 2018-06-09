@@ -83,7 +83,7 @@ public class ProducerConsumer {
                     indexFile(queue.take());
                 }
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         }
 
