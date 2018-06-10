@@ -7,6 +7,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * 桌面搜索应用程序中的生产者任务和消费者任务
+ * 生产者---生产--->队列---消费--->消费者
  */
 public class ProducerConsumer {
     private static final int BOUND = 10;
