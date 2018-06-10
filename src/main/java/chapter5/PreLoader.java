@@ -26,14 +26,15 @@ public class PreLoader {
             Throwable cause = e.getCause();
             if (cause instanceof DataLoadException) {
                 throw (DataLoadException) cause;
-            } else if (cause instanceof InterruptedException) {
-                throw (InterruptedException) cause;
+            } else {
+                throw LaunderThrowable.launderThrowable(cause);
             }
         }
-        return null;
     }
 
-    interface ProductInfo {}
+    interface ProductInfo {
+
+    }
 }
 
 class DataLoadException extends Exception {
