@@ -3,10 +3,10 @@ package chapter5;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 在计时测试中使用CountDownLatch来启动和ti
+ * 在计时测试中使用CountDownLatch来启动和停止线程
  */
 public class TestHarness {
-    public long timeTasks(int nThreads, final Runnable task) {
+    public long timeTasks(int nThreads, final Runnable task) throws InterruptedException {
         final CountDownLatch startGate = new CountDownLatch(1);
         final CountDownLatch endGates = new CountDownLatch(nThreads);
 
@@ -28,11 +28,7 @@ public class TestHarness {
 
         long start = System.nanoTime();
         startGate.countDown();
-        try {
-            endGates.await();//等待事件
-        } catch (InterruptedException e) {
-            //e.printStackTrace();
-        }
+        endGates.await();//等待事件
         long end = System.nanoTime();
         return end - start;
     }
