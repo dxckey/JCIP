@@ -17,7 +17,7 @@ public class BoundedHashSet<T> {
 
     public BoundedHashSet(int bound) {
         this.set = Collections.synchronizedSet(new HashSet<>());
-        semaphore = new Semaphore(bound);
+        this.semaphore = new Semaphore(bound);
     }
 
     public boolean add(T t) throws InterruptedException {
