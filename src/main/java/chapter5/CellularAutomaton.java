@@ -44,7 +44,7 @@ public class CellularAutomaton {
                     }
                 }
                 try {
-                    barrier.await();//等待其他线程，闭锁等待事件触发
+                    barrier.await();//等待其他线程
                 }catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {

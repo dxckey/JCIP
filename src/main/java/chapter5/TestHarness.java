@@ -29,7 +29,7 @@ public class TestHarness {
         long start = System.nanoTime();
         startGate.countDown();
         try {
-            endGates.await();
+            endGates.await();//等待事件
         } catch (InterruptedException e) {
             //e.printStackTrace();
         }
