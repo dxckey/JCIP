@@ -3,6 +3,9 @@ package chapter5;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
+/**
+ * 通过CyclicBarrier协调细胞自动衍生系统中的计算
+ */
 public class CellularAutomaton {
     private final Board mainBoard;
     private final CyclicBarrier barrier;
@@ -41,7 +44,7 @@ public class CellularAutomaton {
                     }
                 }
                 try {
-                    barrier.await();
+                    barrier.await();//等待其他线程，闭锁等待事件触发
                 }catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
