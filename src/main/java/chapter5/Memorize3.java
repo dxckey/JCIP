@@ -27,6 +27,7 @@ public class Memorize3<I, O> implements Computable<I, O> {
     @Override
     public O compute(I arg) throws InterruptedException {
         Future<O> future = cache.get(arg);
+        /*非原子性的先检查后执行*/
         if (future == null) {
             Callable<O> eval = () -> c.compute(arg);
             FutureTask<O> futureTask = new FutureTask<O>(eval);
